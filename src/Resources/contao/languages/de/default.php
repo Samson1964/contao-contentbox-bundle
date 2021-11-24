@@ -2,4 +2,4 @@
 /**
  * Content Elements
  */
-$GLOBALS['TL_LANG']['CTE']['twitch'] = array('Twitch', 'Ein Twitch-Video einbinden');
+$GLOBALS['TL_LANG']['CTE']['contentbox'] = array('Inhaltebox', 'Ein Inhaltebox einbinden');

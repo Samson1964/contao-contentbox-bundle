@@ -10,19 +10,8 @@
  * Content elements
  */
 
-$GLOBALS['TL_LANG']['tl_content']['twitch'] = array('Twitch-ID', 'Bitte geben Sie hier die Twitch-Video-ID ein (z.B. 88536246) oder den Kanalnamen (für Live-Übertragungen) ein.');
-$GLOBALS['TL_LANG']['tl_content']['twitchOptions'] = array('Player-Optionen', 'Hier können Sie die Player-Optionen auswählen.');
-
-$GLOBALS['TL_LANG']['tl_content']['twitchOptionsItems'] = array
-(
-	'twitch_autoplay'       => 'Automatisch abspielen',
-	'twitch_controls'       => 'Steuerelemente verbergen',
-	'twitch_cc_load_policy' => 'Untertitel standardmäßig anzeigen',
-	'twitch_fs'             => 'Den Fullscreen-Button ausblenden',
-	'twitch_hl'             => 'Die Contao-Seitensprache verwenden',
-	'twitch_iv_load_policy' => 'Anmerkungen verstecken',
-	'twitch_modestbranding' => 'Das Twitch-Logo ausblenden',
-	'twitch_rel'            => 'Keine ähnlichen Videos am Ende zeigen',
-	'twitch_showinfo'       => 'Die Linkleiste in der Vorschau ausblenden',
-	'twitch_nocookie'       => 'Die youtube-nocookie.com-Domain verwenden'
-);
+$GLOBALS['TL_LANG']['tl_content']['contentbox_legend'] = 'Einstellungen';
+$GLOBALS['TL_LANG']['tl_content']['contentbox'] = array('Interview', 'Fragen und Antworten des Interviews');
+$GLOBALS['TL_LANG']['tl_content']['contentbox_published'] = array('Veröffentlicht', '');
+$GLOBALS['TL_LANG']['tl_content']['contentbox_question'] = array('Frage', '');
+$GLOBALS['TL_LANG']['tl_content']['contentbox_answer'] = array('Antwort', '');

@@ -17,4 +17,4 @@
  * CONTENT ELEMENTS
  * -------------------------------------------------------------------------
  */
-$GLOBALS['TL_CTE']['content']['contentbox'] = 'Schachbulle\ContaoContentboxBundle\ContentElements\Contentbox';
+$GLOBALS['TL_CTE']['texts']['contentbox'] = 'Schachbulle\ContaoContentboxBundle\ContentElements\Contentbox';
