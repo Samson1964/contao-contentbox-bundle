@@ -1,7 +1,7 @@
 {
     "name": "schachbulle/contao-contentbox-bundle",
     "type": "contao-bundle",
-    "description": "Twitch für Contao 4",
+    "description": "Inhaltebox für Contao 4",
     "license": "LGPL-3.0-or-later",
     "authors": [
         {
@@ -23,11 +23,11 @@
         "doctrine/doctrine-cache-bundle": "^1.3"
     },
     "extra": {
-        "contao-manager-plugin": "Schachbulle\\ContaoTwitchBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Schachbulle\\ContaoContentboxBundle\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
-            "Schachbulle\\ContaoTwitchBundle\\": "src/"
+            "Schachbulle\\ContaoContentboxBundle\\": "src/"
         }
     },
     "support": {
