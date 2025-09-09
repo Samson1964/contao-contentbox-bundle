@@ -1,5 +1,9 @@
 # Contentbox-Bundle Changelog
 
+## Version 1.0.0 (2025-09-09)
+
+* Add: Abhängigkeit PHP 8
+
 ## Version 0.0.4 (2021-11-24)
 
 * Erste arbeitsfähige Version
