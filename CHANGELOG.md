@@ -2,11 +2,11 @@
 
 ## Version 1.0.0 (2025-09-09)
 
-* Add: Abh‰ngigkeit PHP 8
+* Add: Abh√§ngigkeit PHP 8
 
 ## Version 0.0.4 (2021-11-24)
 
-* Erste arbeitsf‰hige Version
+* Erste arbeitsf√§hige Version
 
 ## Version 0.0.3 (2021-11-24)
 
