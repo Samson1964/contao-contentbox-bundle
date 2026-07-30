@@ -1,7 +1,14 @@
 {
     "name": "schachbulle/contao-contentbox-bundle",
     "type": "contao-bundle",
-    "description": "Inhaltebox für Contao 4",
+    "description": "Inhaltselement, das andere Inhaltselemente in einer gestaltbaren Box zusammenfasst.",
+    "keywords": [
+        "contao",
+        "inhaltselement",
+        "box",
+        "layout"
+    ],
+    "homepage": "https://github.com/Samson1964/contao-contentbox-bundle",
     "license": "LGPL-3.0-or-later",
     "authors": [
         {
