@@ -1,21 +1,32 @@
 <?php
 
-/**
- * Contao Open Source CMS
- * Copyright (C) 2005-2017 Leo Feyer
+declare(strict_types=1);
+
+/*
+ * Dieses Bundle stellt ein Inhaltselement bereit, das mehrere Bild-Text-Blöcke
+ * in einer gemeinsamen Box zusammenfasst — lauffähig unter Contao 4.13 und Contao 5.
  *
- * PHP version 5
- * @copyright  Frank Hoppe
- * @author     Frank Hoppe
- * @package    references
- * @license    LGPL
- * @filesource
+ * @license LGPL-3.0-or-later
  */
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['contentbox'] = '{type_legend},type,headline;{contentbox_legend},contentbox;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+use Contao\BackendUser;
+use Contao\System;
 
 /**
- * Fields
+ * Palette des Inhaltselements
+ *
+ * Das Feld „guests" gibt es nur in Contao 4.13; in Contao 5 wurde es aus
+ * tl_content entfernt. Es wird deshalb nur dann in die Palette geschrieben,
+ * wenn der Kern es tatsächlich definiert hat. Die DCA-Datei des Bundles wird
+ * nach der des Kerns geladen (siehe ContaoManager\Plugin), die Feldliste steht
+ * an dieser Stelle also bereits fest.
+ */
+$GLOBALS['TL_DCA']['tl_content']['palettes']['contentbox'] = '{type_legend},type,headline;{contentbox_legend},contentbox;{protected_legend:hide},protected;{expert_legend:hide},'
+	. (isset($GLOBALS['TL_DCA']['tl_content']['fields']['guests']) ? 'guests,' : '')
+	. 'cssID;{invisible_legend:hide},invisible,start,stop';
+
+/**
+ * Felder
  */
 $GLOBALS['TL_DCA']['tl_content']['fields']['contentbox'] = array
 (
@@ -27,7 +38,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['contentbox'] = array
 		'buttonPos'                     => 'top',
 		'buttons'                       => array
 		(
-			//'copy' 			=> true, 
+			//'copy' 			=> true,
 			//'delete' 		=> true,
 			//'up' 			=> true,
 			//'down'			=> true
@@ -40,7 +51,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['contentbox'] = array
 				'exclude'               => true,
 				'inputType'             => 'checkbox',
 				'eval'                  => array
-				(	
+				(
 					'style'             => 'width: 20px',
 					'valign'            => 'top',
 					'columnPos'           => '1'
@@ -74,9 +85,16 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['contentbox'] = array
 					'helpwizard'          => true,
 					'columnPos'           => '1'
 				),
-				'options_callback'        => static function ()
+				// Liefert die im System hinterlegten Bildgrößen als Auswahlliste,
+				// beschränkt auf die Größen, die der angemeldete Benutzer sehen darf.
+				// Der Dienst heißt seit Contao 5 "contao.image.sizes"; unter Contao 4.13
+				// ist "contao.image.image_sizes" nur noch ein Alias darauf, der alte Name
+				// führt in Contao 5 dagegen zu einem Fehler. Die Klassennamen stehen
+				// voll qualifiziert da, weil Contao 5 keine globalen Klassenaliasse
+				// mehr anlegt und "\System" dort nicht mehr existiert.
+				'options_callback'        => static function (): array
 				{
-					return \System::getContainer()->get('contao.image.image_sizes')->getOptionsForUser(\BackendUser::getInstance());
+					return System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance());
 				},
 			),
 			'headline' => array
@@ -100,7 +118,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['contentbox'] = array
 				'exclude'                 => true,
 				'inputType'               => 'textarea',
 				'eval'                    => array
-				(                         
+				(
 					'rte'                 =>'tinyMCE',
 					'style'               => 'width:600px; height:250px;',
 					'valign'              => 'top',

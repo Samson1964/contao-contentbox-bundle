@@ -1,9 +1,12 @@
+# Das Bundle registriert derzeit keine eigenen Dienste. Das Inhaltselement
+# läuft klassisch über $GLOBALS['TL_CTE'], was unter Contao 4.13 wie unter
+# Contao 5 funktioniert.
+#
+# Die frühere _instanceof-Regel auf Symfony\Component\DependencyInjection\
+# ContainerAwareInterface ist entfallen: Die Schnittstelle gibt es in Symfony 7
+# (Contao 5) nicht mehr, und sie hätte hier ohnehin auf keinen Dienst gepasst.
 services:
-    _instanceof:
-        Contao\CoreBundle\Framework\FrameworkAwareInterface:
-            calls:
-                - ["setFramework", ["@contao.framework"]]
-
-        Symfony\Component\DependencyInjection\ContainerAwareInterface:
-            calls:
-                - ["setContainer", ["@service_container"]]
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
